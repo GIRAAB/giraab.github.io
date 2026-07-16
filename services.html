@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIWAF ENTERPRISES Services</title>
+    <style>
+        :root {
+            --orange: #ff7f00;
+            --white: #ffffff;
+            --charcoal: #263238;
+            --soft-grey: #fff3df;
+            --light-orange: #fff1d6;
+            --surface: #fff8f0;
+            --shadow: rgba(38, 50, 56, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--charcoal);
+            background: var(--soft-grey);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--orange) 0%, #ffb347 100%);
+            color: var(--white);
+            padding: 32px 20px;
+            text-align: center;
+        }
+
+        header .brand {
+            letter-spacing: 0.18em;
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 0.75rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--light-orange);
+            box-shadow: 0 8px 24px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            background: #ffe7c1;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--orange);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        .page-wrap {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section h2 {
+            margin: 0 0 18px;
+            font-size: clamp(1.9rem, 3vw, 2.4rem);
+        }
+
+        .section p {
+            margin: 0 0 24px;
+            color: #4f4f4f;
+            line-height: 1.75;
+        }
+
+        .grid-4,
+        .grid-2 {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .service-card,
+        .info-card {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 26px;
+            box-shadow: 0 16px 30px rgba(38, 50, 56, 0.08);
+            border: 1px solid #f2f2f2;
+        }
+
+        .service-card h3,
+        .info-card h3 {
+            margin: 0 0 14px;
+            font-size: 1.15rem;
+        }
+
+        .service-card p,
+        .info-card p {
+            margin: 0;
+            color: #60656c;
+            line-height: 1.7;
+        }
+
+        .cta-card {
+            background: #ffefdc;
+            border: 1px solid #ffe2bd;
+            border-radius: 24px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .cta-card a {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 14px 24px;
+            background: var(--orange);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 32px 20px;
+            text-align: center;
+            color: #4d4d4d;
+            background: var(--light-orange);
+            border-top: 1px solid #ececec;
+        }
+
+        @media (max-width: 980px) {
+
+            .grid-4,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand">GIWAF ENTERPRISES</div>
+        <h1>Our Laundry Services</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="why-us.html">Why Us</a>
+    </nav>
+
+    <main class="page-wrap">
+        <section class="section">
+            <h2>Service choices for every load</h2>
+            <p>GIWAF ENTERPRISES offers reliable laundry care for homes and businesses. Choose the service that matches your needs and move on with your day.</p>
+            <div class="grid-4">
+                <article class="service-card">
+                    <h3>Wash & Fold</h3>
+                    <p>Premium wash, gentle dry, and accurate folding for all your everyday garments.</p>
+                    <p><strong>Price:</strong> ₦1,500 / kg</p>
+                </article>
+                <article class="service-card">
+                    <h3>Dry Cleaning</h3>
+                    <p>Safe dry cleaning for suits, uniforms, and delicate fabrics.</p>
+                    <p><strong>Price:</strong> from ₦2,500 per item</p>
+                </article>
+                <article class="service-card">
+                    <h3>Ironing & Pressing</h3>
+                    <p>Professional pressing for shirts, trousers, and uniforms.</p>
+                    <p><strong>Price:</strong> ₦700 per item</p>
+                </article>
+                <article class="service-card">
+                    <h3>Pickup & Delivery</h3>
+                    <p>Convenient service to collect laundry from your door and return it fresh.</p>
+                    <p><strong>Price:</strong> ₦1,000 within Lagos Island</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Itemized pricing</h2>
+            <p>Affordable rates for common laundry items make it easy to budget for every load.</p>
+            <div class="grid-2">
+                <article class="info-card">
+                    <h3>Socks</h3>
+                    <p>₦200 per pair</p>
+                </article>
+                <article class="info-card">
+                    <h3>Top</h3>
+                    <p>₦700 per item</p>
+                </article>
+                <article class="info-card">
+                    <h3>Trousers</h3>
+                    <p>₦900 per item</p>
+                </article>
+                <article class="info-card">
+                    <h3>Bed sheet</h3>
+                    <p>₦2,500 per set</p>
+                </article>
+                <article class="info-card">
+                    <h3>Pillow case</h3>
+                    <p>₦500 per piece</p>
+                </article>
+                <article class="info-card">
+                    <h3>Bed cover</h3>
+                    <p>₦3,000 each</p>
+                </article>
+                <article class="info-card">
+                    <h3>Underwear</h3>
+                    <p>₦250 per pair</p>
+                </article>
+                <article class="info-card">
+                    <h3>Suit</h3>
+                    <p>₦3,500 per set</p>
+                </article>
+                <article class="info-card">
+                    <h3>Agbada</h3>
+                    <p>₦4,000 per set</p>
+                </article>
+                <article class="info-card">
+                    <h3>Tie</h3>
+                    <p>₦400 each</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section cta-card">
+            <h2>Ready to book?</h2>
+            <p>Head to our contact page to request pickup, send notes, and confirm your order quickly.</p>
+            <a href="contact.html">Contact Us</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 GIWAF ENTERPRISES. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
