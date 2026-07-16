@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact GIWAF ENTERPRISES</title>
+    <style>
+        :root {
+            --orange: #ff7f00;
+            --white: #ffffff;
+            --charcoal: #263238;
+            --soft-grey: #fff3df;
+            --light-orange: #fff1d6;
+            --surface: #fff8f0;
+            --shadow: rgba(38, 50, 56, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--charcoal);
+            background: var(--soft-grey);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--orange) 0%, #ffb347 100%);
+            color: var(--white);
+            padding: 32px 20px;
+            text-align: center;
+        }
+
+        header .brand {
+            letter-spacing: 0.18em;
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 0.75rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--light-orange);
+            box-shadow: 0 8px 24px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            background: #ffe7c1;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--orange);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        .page-wrap {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section h2 {
+            margin: 0 0 18px;
+            font-size: clamp(1.9rem, 3vw, 2.4rem);
+        }
+
+        .section p {
+            margin: 0 0 24px;
+            color: #4f4f4f;
+            line-height: 1.75;
+        }
+
+        .grid-2 {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .contact-card,
+        .info-card,
+        .summary-card,
+        .order-history {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 26px;
+            box-shadow: 0 16px 30px rgba(38, 50, 56, 0.08);
+            border: 1px solid #f2f2f2;
+        }
+
+        .contact-card h3,
+        .info-card h3,
+        .summary-card h3,
+        .order-history h3 {
+            margin: 0 0 14px;
+            font-size: 1.15rem;
+        }
+
+        .order-form {
+            display: grid;
+            gap: 16px;
+        }
+
+        .order-form label {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .order-form input,
+        .order-form select,
+        .order-form textarea {
+            width: 100%;
+            border: 1px solid #d8d8d8;
+            border-radius: 14px;
+            padding: 14px 16px;
+            font: inherit;
+            background: #fff;
+        }
+
+        .order-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .item-grid {
+            display: grid;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .item-row {
+            display: grid;
+            grid-template-columns: auto 1fr auto 120px;
+            gap: 12px;
+            align-items: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #faf7f0;
+            border: 1px solid #f0e8d8;
+        }
+
+        .item-row span {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .item-row .item-price {
+            color: #777;
+            font-size: 0.95rem;
+            text-align: right;
+        }
+
+        .item-row input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--orange);
+        }
+
+        .item-row input[type="number"] {
+            width: 100%;
+            min-width: 90px;
+        }
+
+        .total-display {
+            margin-top: 10px;
+            padding: 18px 20px;
+            border-radius: 18px;
+            background: #fff7e6;
+            border: 1px solid #ffe3b8;
+            color: #7a4b0c;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .field-note {
+            margin: 10px 0 0;
+            color: #6d4b26;
+            font-size: 0.95rem;
+        }
+
+        .order-form button {
+            border: none;
+            border-radius: 14px;
+            background: var(--orange);
+            color: var(--white);
+            padding: 16px 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .order-form button:hover {
+            opacity: 0.95;
+        }
+
+        .confirmation {
+            display: none;
+            border-radius: 18px;
+            padding: 18px 20px;
+            background: #f2fff5;
+            border: 1px solid #b9f3c8;
+            color: #274929;
+        }
+
+        .confirmation strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-note {
+            margin-top: 18px;
+            color: #595959;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            padding: 32px 20px;
+            text-align: center;
+            color: #4d4d4d;
+            background: var(--light-orange);
+            border-top: 1px solid #ececec;
+        }
+
+        @media (max-width: 980px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand">GIWAF ENTERPRISES</div>
+        <h1>Contact GIWAF ENTERPRISES</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html" class="active">Contact Us</a>
+        <a href="services.html">Services</a>
+        <a href="why-us.html">Why Us</a>
+    </nav>
+
+    <main class="page-wrap">
+        <section class="section">
+            <h2>Reach us for pickup and laundry orders</h2>
+            <p>GIWAF ENTERPRISES is ready to receive your order, payment method, and delivery details on one page.</p>
+            <div class="grid-2">
+                <article class="contact-card">
+                    <h3>Visit us</h3>
+                    <p>49 Campbell Street, Lagos Island, Lagos.</p>
+                    <p>Open daily: 8:00 AM - 8:00 PM</p>
+                </article>
+                <article class="contact-card">
+                    <h3>Call or message</h3>
+                    <p>+234 802 230 2234</p>
+                    <p>0805 204 1972</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Send your order details</h2>
+            <div class="grid-2">
+                <article class="info-card">
+                    <form id="order-form" class="order-form">
+                        <label for="customer-name">Full Name</label>
+                        <input id="customer-name" name="customer-name" type="text" placeholder="Your full name" required>
+
+                        <label for="customer-phone">Phone Number</label>
+                        <input id="customer-phone" name="customer-phone" type="tel" placeholder="0805 204 1972" required>
+
+                        <label for="customer-address">Address</label>
+                        <textarea id="customer-address" name="customer-address" placeholder="Your address" required></textarea>
+
+                        <label>Select items and quantities</label>
+                        <div class="item-grid" id="item-grid">
+                            <div class="item-row">
+                                <input type="checkbox" class="item-check" id="item-bed-sheet-check" data-price="2500">
+                                <span>Bed sheet</span>
+                                <span class="item-price">₦2,500 / set</span>
+                                <input type="number" min="0" value="0" step="1" data-price="2500" name="qty-bed-sheet" aria-label="Bed sheet quantity" disabled>
+                            </div>
+                            <div class="item-row">
+                                <input type="checkbox" class="item-check" id="item-pillow-case-check" data-price="500">
+                                <span>Pillow case</span>
+                                <span class="item-price">₦500 / piece</span>
+                                <input type="number" min="0" value="0" step="1" data-price="500" name="qty-pillow-case" aria-label="Pillow case quantity" disabled>
+                            </div>
+                            <div class="item-row">
+                                <input type="checkbox" class="item-check" id="item-bed-cover-check" data-price="3000">
+                                <span>Bed cover</span>
+                                <span class="item-price">₦3,000 / each</span>
+                                <input type="number" min="0" value="0" step="1" data-price="3000" name="qty-bed-cover" aria-label="Bed cover quantity" disabled>
+                            </div>
+                            <div class="item-row">
+                                <input type="checkbox" class="item-check" id="item-underwear-check" data-price="250">
+                                <span>Underwear</span>
+                                <span class="item-price">₦250 / pair</span>
+                                <input type="number" min="0" value="0" step="1" data-price="250" name="qty-underwear" aria-label="Underwear quantity" disabled>
+                            </div>
+                            <div class="item-row">
+                                <input type="checkbox" class="item-check" id="item-suit-check" data-price="3500">
+                                <span>Suit</span>
+                                <span class="item-price">₦3,500 / set</span>
+                                <input type="number" min="0" value="0" step="1" data-price="3500" name="qty-suit" aria-label="Suit quantity" disabled>
+                            </div>
+                            <div class="item-row">
+                                <input type="checkbox" class="item-check" id="item-agbada-check" data-price="4000">
+                                <span>Agbada</span>
+                                <span class="item-price">₦4,000 / set</span>
+                                <input type="number" min="0" value="0" step="1" data-price="4000" name="qty-agbada" aria-label="Agbada quantity" disabled>
+                            </div>
+                            <div class="item-row">
+                                <input type="checkbox" class="item-check" id="item-tie-check" data-price="400">
+                                <span>Tie</span>
+                                <span class="item-price">₦400 / each</span>
+                                <input type="number" min="0" value="0" step="1" data-price="400" name="qty-tie" aria-label="Tie quantity" disabled>
+                            </div>
+                        </div>
+
+                        <div class="total-display" id="price-total">Total: ₦0</div>
+                        <p class="field-note">Total updates automatically as you select items.</p>
+
+                        <label for="order-items">Order notes</label>
+                        <textarea id="order-items" name="order-items" placeholder="Tell us about your order or special care instructions" required></textarea>
+
+                        <label for="payment-method">Payment method</label>
+                        <select id="payment-method" name="payment-method" required>
+                            <option value="" disabled selected>Select payment method</option>
+                            <option value="Bank Transfer">Bank Transfer</option>
+                            <option value="Cash on Delivery">Cash on Delivery</option>
+                            <option value="Mobile Money">Mobile Money</option>
+                        </select>
+
+                        <button type="submit">Submit order request</button>
+                        <div id="order-confirmation" class="confirmation" role="status"></div>
+                    </form>
+                </article>
+
+                <article class="summary-card">
+                    <h3>Order summary</h3>
+                    <ul>
+                        <li>Bed sheet — ₦2,500 / set</li>
+                        <li>Pillow case — ₦500 / piece</li>
+                        <li>Bed cover — ₦3,000 / each</li>
+                        <li>Underwear — ₦250 / pair</li>
+                        <li>Suit — ₦3,500 / set</li>
+                        <li>Agbada — ₦4,000 / set</li>
+                        <li>Tie — ₦400 / each</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Order history</h2>
+            <div class="order-history" id="order-history">
+                <p id="order-history-empty">No orders submitted yet. Your requests will appear here after submission.</p>
+                <ul id="order-history-list"></ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="info-card cta-card">
+                <h3>Need help?</h3>
+                <p>For quick support, call +234 802 230 2234 or email Fataigiwaa@gmail.com.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 GIWAF ENTERPRISES. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function updateTotal() {
+            var total = 0;
+            var itemInputs = document.querySelectorAll('#item-grid input[type="number"]');
+            itemInputs.forEach(function (input) {
+                var qty = parseInt(input.value, 10) || 0;
+                var price = parseInt(input.dataset.price, 10) || 0;
+                total += qty * price;
+            });
+            document.getElementById('price-total').textContent = 'Total: ₦' + total.toLocaleString();
+            return total;
+        }
+
+        function toggleItemInput(checkbox) {
+            var row = checkbox.closest('.item-row');
+            var quantityInput = row.querySelector('input[type="number"]');
+            if (quantityInput) {
+                if (checkbox.checked) {
+                    quantityInput.disabled = false;
+                    if (parseInt(quantityInput.value, 10) === 0) {
+                        quantityInput.value = 1;
+                    }
+                } else {
+                    quantityInput.disabled = true;
+                    quantityInput.value = 0;
+                }
+            }
+        }
+
+        function formatOrderDate(date) {
+            var options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            return new Date(date).toLocaleString('en-US', options);
+        }
+
+        function renderOrderHistory() {
+            var historyList = document.getElementById('order-history-list');
+            var historyEmpty = document.getElementById('order-history-empty');
+            var orders = JSON.parse(localStorage.getItem('giwafOrderHistory') || '[]');
+            historyList.innerHTML = '';
+
+            if (!orders.length) {
+                historyEmpty.style.display = 'block';
+                return;
+            }
+
+            historyEmpty.style.display = 'none';
+            orders.slice().reverse().forEach(function (order) {
+                var itemList = order.items.map(function (item) {
+                    return item.quantity + ' x ' + item.name;
+                }).join(', ');
+                var li = document.createElement('li');
+                li.innerHTML = '<strong>' + formatOrderDate(order.submittedAt) + '</strong>' +
+                    '<div>' + itemList + '</div>' +
+                    '<div><strong>Total:</strong> ₦' + order.total.toLocaleString() + '</div>' +
+                    '<div><strong>Payment:</strong> ' + order.payment + '</div>';
+                historyList.appendChild(li);
+            });
+        }
+
+        function saveOrderHistory(order) {
+            var orders = JSON.parse(localStorage.getItem('giwafOrderHistory') || '[]');
+            orders.push(order);
+            localStorage.setItem('giwafOrderHistory', JSON.stringify(orders));
+        }
+
+        document.querySelectorAll('#item-grid input[type="checkbox"]').forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                toggleItemInput(checkbox);
+                updateTotal();
+            });
+        });
+
+        document.querySelectorAll('#item-grid input[type="number"]').forEach(function (input) {
+            input.addEventListener('input', function () {
+                if (parseInt(input.value, 10) > 0) {
+                    var checkbox = input.closest('.item-row').querySelector('.item-check');
+                    if (checkbox) checkbox.checked = true;
+                }
+                updateTotal();
+            });
+        });
+
+        document.getElementById('order-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var name = document.getElementById('customer-name').value.trim();
+            var phone = document.getElementById('customer-phone').value.trim();
+            var address = document.getElementById('customer-address').value.trim();
+            var payment = document.getElementById('payment-method').value;
+            var selectedRows = Array.from(document.querySelectorAll('#item-grid .item-row')).filter(function (row) {
+                return row.querySelector('.item-check').checked;
+            });
+            var items = selectedRows.map(function (row) {
+                return {
+                    name: row.querySelector('span').textContent,
+                    quantity: parseInt(row.querySelector('input[type="number"]').value, 10) || 0
+                };
+            });
+            var total = updateTotal();
+            var confirmation = document.getElementById('order-confirmation');
+
+            if (!name || !phone || !address || !payment || items.length === 0) {
+                confirmation.textContent = 'Please complete all fields, select at least one item, and choose a payment method.';
+                confirmation.style.display = 'block';
+                confirmation.style.background = '#fff4e5';
+                confirmation.style.borderColor = '#ffd6a5';
+                confirmation.style.color = '#7e5f2f';
+                return;
+            }
+
+            var order = {
+                submittedAt: new Date().toISOString(),
+                customer: { name: name, phone: phone, address: address },
+                items: items,
+                payment: payment,
+                total: total
+            };
+
+            saveOrderHistory(order);
+            renderOrderHistory();
+
+            confirmation.innerHTML = '<strong>Order request submitted!</strong><br>' +
+                'Thank you, ' + name + '. Your total is ₦' + total.toLocaleString() + '.<br>' +
+                'Payment method: ' + payment + '.';
+            confirmation.style.display = 'block';
+            confirmation.style.background = '#f2fff5';
+            confirmation.style.borderColor = '#b9f3c8';
+            confirmation.style.color = '#274929';
+
+            document.getElementById('order-form').reset();
+            updateTotal();
+        });
+
+        renderOrderHistory();
+    </script>
