@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIWAF ENTERPRISES Laundromat</title>
+    <style>
+        :root {
+            --orange: #ff7f00;
+            --white: #ffffff;
+            --charcoal: #263238;
+            --soft-grey: #fff3df;
+            --light-orange: #fff1d6;
+            --surface: #fff8f0;
+            --dark-grey: #3a3f44;
+            --shadow: rgba(38, 50, 56, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--charcoal);
+            background: var(--soft-grey);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--orange) 0%, #ffb347 100%);
+            color: var(--white);
+            padding: 32px 20px;
+            text-align: center;
+        }
+
+        header .brand {
+            letter-spacing: 0.18em;
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 0.75rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.05;
+        }
+
+        header p {
+            margin: 16px auto 0;
+            max-width: 760px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--light-orange);
+            box-shadow: 0 8px 24px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            background: #ffe7c1;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--orange);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        .page-wrap {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+            gap: 28px;
+            align-items: center;
+            margin-bottom: 48px;
+        }
+
+        .hero h2 {
+            margin: 0 0 18px;
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            line-height: 1.05;
+        }
+
+        .hero p {
+            margin: 0 0 24px;
+            max-width: 660px;
+            line-height: 1.75;
+            color: #4a4a4a;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .hero-actions button,
+        .hero-actions a.button {
+            border: none;
+            cursor: pointer;
+            border-radius: 999px;
+            text-decoration: none;
+            padding: 14px 24px;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hero-machine {
+            display: grid;
+            place-items: center;
+            background: linear-gradient(180deg, #f7f7f7 0%, #ffffff 100%);
+            border: 1px solid #e0e0e0;
+            border-radius: 28px;
+            padding: 28px;
+            box-shadow: 0 20px 40px rgba(38, 50, 56, 0.06);
+        }
+
+        .machine-shell {
+            width: min(360px, 100%);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .washing-machine {
+            background: #e6e8ea;
+            border-radius: 24px;
+            border: 1px solid #c4c6c8;
+            box-shadow: 0 22px 34px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .machine-top {
+            background: linear-gradient(180deg, #dfe2e5 0%, #f6f7f8 100%);
+            padding: 18px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #d3d6d9;
+        }
+
+        .machine-brand {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.08em;
+        }
+
+        .machine-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-button,
+        .control-light {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #b4b7bb;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .control-button.active {
+            background: #ff7f00;
+            box-shadow: 0 0 0 4px rgba(255, 127, 0, 0.15);
+        }
+
+        .machine-body {
+            padding: 24px 28px 28px;
+            display: grid;
+            justify-items: center;
+            gap: 20px;
+        }
+
+        .machine-door {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 20px solid #bfc3c6;
+            background: #cfd4d8;
+            position: relative;
+            box-shadow: inset 0 10px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .door-glass {
+            position: absolute;
+            inset: 24px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #edf3f8 20%, #d6e4f1 45%, #adc4d5 70%, #8ca2b5 100%);
+            box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.24);
+            display: grid;
+            place-items: center;
+        }
+
+        .door-drum {
+            width: 60%;
+            height: 60%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 25% 25%, #d0e1f4 18%, #a6c5e0 42%, #7c9ec0 72%, #556c8f 100%);
+            position: relative;
+            box-shadow: inset 0 9px 22px rgba(255, 255, 255, 0.24);
+        }
+
+        .door-drum::before {
+            content: "";
+            position: absolute;
+            inset: 18%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.3) 12%, transparent 14%);
+        }
+
+        .machine-handle {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            width: 100px;
+            height: 16px;
+            border-radius: 999px;
+            background: #8c9298;
+            transform: translateX(-50%);
+            box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.3);
+        }
+
+        .machine-footer {
+            display: grid;
+            gap: 10px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #343a40;
+        }
+
+        .hero-actions .primary {
+            background: var(--orange);
+            color: var(--white);
+            box-shadow: 0 18px 30px rgba(255, 127, 0, 0.18);
+        }
+
+        .hero-actions .secondary {
+            background: #ffffff;
+            color: var(--charcoal);
+            border: 1px solid rgba(38, 50, 56, 0.08);
+        }
+
+        .hero-actions button:hover,
+        .hero-actions a.button:hover {
+            transform: translateY(-2px);
+        }
+
+
+        .section {
+            margin-bottom: 52px;
+        }
+
+        .section h2 {
+            margin: 0 0 18px;
+            font-size: clamp(1.9rem, 3vw, 2.4rem);
+        }
+
+        .section p {
+            margin: 0 0 24px;
+            color: #4f4f4f;
+            line-height: 1.75;
+        }
+
+        .grid-4,
+        .grid-2 {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .card,
+        .info-card,
+        .service-card,
+        .summary-card {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 26px;
+            box-shadow: 0 16px 30px rgba(38, 50, 56, 0.08);
+            border: 1px solid #f2f2f2;
+        }
+
+        .card h3,
+        .info-card h3,
+        .service-card h3,
+        .summary-card h3 {
+            margin: 0 0 14px;
+            font-size: 1.15rem;
+        }
+
+        .card p,
+        .info-card p,
+        .service-card p,
+        .summary-card p {
+            margin: 0;
+            color: #60656c;
+            line-height: 1.7;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .booking-form {
+            display: grid;
+            gap: 14px;
+        }
+
+        .booking-form label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        .booking-form input,
+        .booking-form select,
+        .booking-form textarea {
+            width: 100%;
+            border: 1px solid #d8d8d8;
+            border-radius: 14px;
+            padding: 14px 16px;
+            font: inherit;
+            background: #fff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .booking-form input:focus,
+        .booking-form select:focus,
+        .booking-form textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 4px rgba(255, 127, 0, 0.14);
+        }
+
+        .booking-form button {
+            margin-top: 10px;
+            border: none;
+            border-radius: 14px;
+            background: var(--orange);
+            color: var(--white);
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .booking-form button:hover {
+            opacity: 0.95;
+        }
+
+        .confirmation {
+            display: none;
+            margin-top: 18px;
+            border-radius: 18px;
+            padding: 18px 20px;
+            background: #f2fff5;
+            border: 1px solid #b9f3c8;
+            color: #274929;
+        }
+
+        .confirmation strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .summary-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .summary-card li {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 12px;
+            align-items: center;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #fff3dd;
+            border: 1px solid #f0e5d0;
+        }
+
+        .summary-card strong {
+            color: #333;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 32px 20px;
+            text-align: center;
+            color: #4d4d4d;
+            background: var(--light-orange);
+            border-top: 1px solid #ececec;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links a {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 980px) {
+            .hero,
+            .booking-grid,
+            .grid-4,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                gap: 20px;
+            }
+
+            header {
+                padding: 28px 18px;
+            }
+
+            .page-wrap {
+                padding: 24px 16px 48px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand">GIWAF ENTERPRISES</div>
+        <h1>GIWAF ENTERPRISES Laundromat Service</h1>
+        <p>Fast, reliable laundry and dry cleaning with modern pickup and delivery for residential and business customers.</p>
+    </header>
+
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="services.html">Services</a>
+        <a href="why-us.html">Why Us</a>
+    </nav>
+
+    <main class="page-wrap">
+        <section id="home" class="hero">
+            <div>
+                <h2>Clean laundry made simple.</h2>
+                <p>GIWAF ENTERPRISES brings a bright laundromat experience with quality washing, gentle care, and express booking for every customer.</p>
+                <div class="hero-actions">
+                    <button type="button" onclick="window.location.href='contact.html'">Book a Service</button>
+                    <a class="button secondary" href="services.html">View Services</a>
+                </div>
+            </div>
+            <div class="hero-machine">
+                <div class="machine-shell">
+                    <div class="washing-machine">
+                        <div class="machine-top">
+                            <div class="machine-brand">GIWAF</div>
+                            <div class="machine-controls">
+                                <div class="control-button active"></div>
+                                <div class="control-button"></div>
+                                <div class="control-light"></div>
+                            </div>
+                        </div>
+                        <div class="machine-body">
+                            <div class="machine-door">
+                                <div class="door-glass">
+                                    <div class="door-drum"></div>
+                                </div>
+                                <div class="machine-handle"></div>
+                            </div>
+                        </div>
+                        <div class="machine-footer">
+                            <span class="machine-label">Front-load washing machine</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Welcome to GIWAF ENTERPRISES</h2>
+            <p>GIWAF ENTERPRISES is your trusted Lagos Island laundry partner. We offer reliable washing, dry cleaning, ironing and delivery services for homes and small businesses.</p>
+            <div class="grid-2">
+                <article class="info-card">
+                    <h3>Easy booking</h3>
+                    <p>Use the Contact Us page to place your order, request pickup, and ask for any special care instructions.</p>
+                </article>
+                <article class="info-card">
+                    <h3>Transparent pricing</h3>
+                    <p>Our Services page shows affordable rates for wash & fold, dry cleaning, ironing and delivery.</p>
+                </article>
+            </div>
+            <div class="grid-2" style="margin-top: 24px;">
+                <article class="info-card">
+                    <h3>Why choose us?</h3>
+                    <p>We combine speed, quality, and friendly service with easy pickup and delivery across Lagos Island.</p>
+                </article>
+                <article class="info-card cta-card" style="text-align: left;">
+                    <h3>Get started</h3>
+                    <p>Visit the pages below to learn more and place your order.</p>
+                    <p><a href="services.html">See services</a></p>
+                    <p><a href="why-us.html">Why Us</a></p>
+                    <p><a href="contact.html">Contact Us</a></p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="why-us.html">Why Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p>© 2026 GIWAF ENTERPRISES. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
