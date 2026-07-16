@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIWAF ENTERPRISES - Why Choose Us</title>
+    <style>
+        :root {
+            --orange: #ff7f00;
+            --white: #ffffff;
+            --charcoal: #263238;
+            --soft-grey: #fff3df;
+            --light-orange: #fff1d6;
+            --surface: #fff8f0;
+            --shadow: rgba(38, 50, 56, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--charcoal);
+            background: var(--soft-grey);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--orange) 0%, #ffb347 100%);
+            color: var(--white);
+            padding: 32px 20px;
+            text-align: center;
+        }
+
+        header .brand {
+            letter-spacing: 0.18em;
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 0.75rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--light-orange);
+            box-shadow: 0 8px 24px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            background: #ffe7c1;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--orange);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        .page-wrap {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section h2 {
+            margin: 0 0 18px;
+            font-size: clamp(1.9rem, 3vw, 2.4rem);
+        }
+
+        .section p {
+            margin: 0 0 24px;
+            color: #4f4f4f;
+            line-height: 1.75;
+        }
+
+        .features-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 18px 32px rgba(38, 50, 56, 0.08);
+            border: 1px solid #f2f2f2;
+        }
+
+        .feature-card h3 {
+            margin: 0 0 12px;
+            font-size: 1.15rem;
+        }
+
+        .feature-card p {
+            margin: 0;
+            color: #555f68;
+            line-height: 1.75;
+        }
+
+        .highlight-box {
+            display: grid;
+            gap: 20px;
+            background: var(--orange);
+            color: var(--white);
+            padding: 28px;
+            border-radius: 24px;
+        }
+
+        .highlight-box h3 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            max-width: 49rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-card {
+            background: #fff9f0;
+            border: 1px solid #ffddb3;
+            border-radius: 24px;
+            padding: 28px;
+        }
+
+        .testimonial-card blockquote {
+            margin: 0;
+            font-style: italic;
+            color: #3f3f3f;
+            line-height: 1.9;
+        }
+
+        .testimonial-card cite {
+            display: block;
+            margin-top: 18px;
+            font-weight: 700;
+            color: #292929;
+        }
+
+        .cta-card {
+            background: #fff1d6;
+            border: 1px solid #ffd0a0;
+            border-radius: 24px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .cta-card a {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 14px 24px;
+            background: var(--white);
+            color: var(--orange);
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 32px 20px;
+            text-align: center;
+            color: #4d4d4d;
+            background: var(--light-orange);
+            border-top: 1px solid #ececec;
+        }
+
+        @media (max-width: 980px) {
+            .features-grid,
+            .highlight-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand">GIWAF ENTERPRISES</div>
+        <h1>Why Choose GIWAF ENTERPRISES</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="services.html">Services</a>
+        <a href="why-us.html" class="active">Why Us</a>
+    </nav>
+
+    <main class="page-wrap">
+        <section class="section">
+            <h2>Trusted laundry care with strong orange energy</h2>
+            <p>GIWAF ENTERPRISES delivers fast, professional laundry services with a focus on convenience, quality, and friendly customer care.</p>
+        </section>
+
+        <section class="section">
+            <div class="features-grid">
+                <article class="feature-card">
+                    <h3>Reliable results</h3>
+                    <p>We treat your clothes and linens with extra care. Every order is checked before delivery so you receive fresh, clean, and neatly folded items.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Fast turnaround</h3>
+                    <p>Most orders are completed within 24 to 48 hours. Our team works quickly without compromising quality.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Clear pricing</h3>
+                    <p>Itemized rates make it easy to understand exactly what you pay. There are no surprise fees — just transparent laundry pricing.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section highlight-box">
+            <h3>Orange-forward service for an unforgettable wash</h3>
+            <p>Our brand is bold, warm, and dependable. GIWAF ENTERPRISES combines local convenience with dependable laundry care to make every order simple and satisfying.</p>
+        </section>
+
+        <section class="section">
+            <div class="testimonial-card">
+                <blockquote>"The service from GIWAF ENTERPRISES is prompt and professional. They keep my clothes fresh, and ordering is always easy."</blockquote>
+                <cite>- A happy customer</cite>
+            </div>
+        </section>
+
+        <section class="section cta-card">
+            <h2>Start your order today</h2>
+            <p>Ready to make laundry day easier? Tell us what you need and we will take it from there.</p>
+            <a href="contact.html">Place an Order</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 GIWAF ENTERPRISES. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
